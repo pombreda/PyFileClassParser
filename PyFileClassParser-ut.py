@@ -24,7 +24,7 @@ class TestSequence(unittest.TestCase):
 		self.analysis.extAdd('doc', ['.pdf', '.txt', '.doc'])
 		self.analysis.extAdd('container', ['.tar.gz', '.zip'])
 
-		self.folder = FileWalker(name='Broadcom SDK', pathToFolder='/Users/bastian/Jobb/Transmode/R21-EDU/Software/AIMVALLEY-Titan-R1_03_00-LD3.0-20121119')
+		self.folder = FileWalker(name='Broadcom SDK', pathToFolder='/pathToFolder')
 
 		self.analysis.folderAdd(self.folder)
 
