@@ -10,7 +10,7 @@ The main idea was to create a configurable file parser that could scan source fo
 
  ```Python
  from FileWalker import FileWalker
- ``
+ ```
 
 # Classes
 
