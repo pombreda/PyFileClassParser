@@ -1,8 +1,8 @@
 import unittest
 import random
 
-from fileAnalysis import CodeAnalysis
-from Folder import FileWalker
+from PyFileClassParser import CodeAnalysis
+from FileWalker import FileWalker
 
 class TestSequence(unittest.TestCase):
 

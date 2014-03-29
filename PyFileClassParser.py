@@ -15,7 +15,7 @@ import getpass
 import re
 from FileSize import FileSize
 from FileClass import FileClass
-from Folder import FileWalker
+from FileWalker import FileWalker
 from Session import Session
 AlreadyExists = 1
 
