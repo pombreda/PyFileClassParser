@@ -6,10 +6,23 @@ The main idea was to create a configurable file parser that could scan source fo
  * How much scripting code does the project contain?
 
 ## How to use it
- * In order to scan several folders for files 
+ * In order to scan several folders for files simply do the following: 
+   * Configure a number of file classes
+   * Add the folders
+   * Print results
 
  ```Python
- from FileWalker import FileWalker
+ 	self.analysis.extAdd('source', ['.c', '.C', '.cc', '.h', '.CC', '.py'])
+	self.analysis.extAdd('make', ['.in', '.am', '.mk'])
+	self.analysis.extAdd('script', ['.sh'])
+	self.analysis.extAdd('doc', ['.pdf', '.txt', '.doc'])
+	self.analysis.extAdd('container', ['.tar.gz', '.zip'])
+
+	self.folder = FileWalker(name='Broadcom SDK', pathToFolder='/Users/bastian/Jobb/Transmode/R21-EDU/Software/AIMVALLEY-Titan-R1_03_00-LD3.0-20121119')
+
+	self.analysis.folderAdd(self.folder)
+
+	print self.analysis
  ```
 
 # Classes
