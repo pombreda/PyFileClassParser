@@ -7,21 +7,48 @@ class TestSequence(unittest.TestCase):
 
 	def setUp(self):
 		self.analysis = FileClass('unittest')
-		self.files = ['FileClass.py', 'FileClass-ut.py']
+		self.analysis.clear()
 
 	def tearDown(self):
 		del self.analysis
 
-	def test_addFiles(self):
-		for item in self.files:
-			self.analysis.insertFile(item)
+	def test_emptyWhenConstructed(self):
 
-		self.analysis.insertFile(self.files[1])
+		self.assertEqual(len(self.analysis.getFiles()), 0)
+
+
+	def test_addOneElement(self):
+		
+		# 'files = ['FileClass.py', 'FileClass-ut.py']'
+		self.analysis.insertFile('FileClass.py')
 
 		# expected: existing files are ignored
-		self.assertEqual(len(self.files), len(self.analysis.getFiles()))
+		self.assertEqual(len(self.analysis.getFiles()), 1)
+
+
+	def test_doubledItemIgnored(self):
+		
+		# 'files = ['FileClass.py', 'FileClass-ut.py']'
+		self.analysis.insertFile('FileClass.py')
+
+		# expected: existing files are ignored
+		self.assertEqual(len(self.analysis.getFiles()), 1)
+
+		self.analysis.insertFile('FileClass.py')
+
+		self.assertEqual(len(self.analysis.getFiles()), 1)
+
+
+	def test_NoItemsWhenCleared(self):
+
+		self.analysis.insertFile('FileClass.py')
+
+		# expected: existing files are ignored
+		self.assertEqual(len(self.analysis.getFiles()), 1)
 
 		self.analysis.clear()
+
+		self.assertEqual(len(self.analysis.getFiles()), 0)
 
 
 if __name__ == "__main__":
