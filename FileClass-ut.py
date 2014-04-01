@@ -50,6 +50,35 @@ class TestSequence(unittest.TestCase):
 
 		self.assertEqual(len(self.analysis.getFiles()), 0)
 
+	def test_AddExtension(self):
+
+		self.assertTrue(self.analysis.addExtension('.cc'))
+
+		self.assertEqual(['.cc'], self.analysis.getExtensions())
+
+		self.assertTrue(self.analysis.addExtension('.cc'))
+
+		self.assertEqual(['.cc'], self.analysis.getExtensions())
+
+		self.assertTrue(self.analysis.addExtension('.C'))
+
+		self.assertEqual(['.cc', '.C'], self.analysis.getExtensions())
+
+	def test_AddExtensionList(self):
+
+		self.assertEqual([], self.analysis.getExtensions())
+
+		self.assertTrue(self.analysis.addExtension(['.cc', '.C', '.cc']))
+
+		# doubled entries are ignored
+		self.assertEqual(['.cc', '.C'], self.analysis.getExtensions())
+
+	def test_TestFileMatchingExtension(self):
+
+		self.assertTrue(self.analysis.addExtension(['.cc', '.C', '.cc']))
+
+		self.assertTrue(self.analysis.insertFile('FileClass.py'))
+
 
 if __name__ == "__main__":
     unittest.main()
