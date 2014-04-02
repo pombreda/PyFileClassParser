@@ -9,29 +9,47 @@ class FileClass():
 		self.statistics = FileStatistics(className)
 		self.name = className
 		self.extensions = []
-		self.files = set([])	# list of files associated to this class
+		self.files = set([])	# unique list of files
 
 	def insertFile(self, pathToFile):
-		""" Check file name against regexp and add if matched """
-		if isinstance(extensions, list):
-			return False
-		elsif isinstance(extensions, basestring):
-			self.files.add(pathToFile)
-		self.statistics.addFile(pathToFile)
-		return True
+		""" Check file name against regexp and add if matched, return true if added """
+		if isinstance(pathToFile, list):
+			raise TypeError
+		elif isinstance(pathToFile, basestring):
+			return self.__addFile(pathToFile)		
+
+		return False
 
 	def addExtension(self, extensions):
 		if isinstance(extensions, list):
-			return self.__addList(extensions)
+			return self.__addListExt(extensions)
 		elif isinstance(extensions, basestring):
-			return self.__addSingle(extensions)
+			return self.__addSingleExt(extensions)
 		else:
 			raise TypeError
 
 	def getExtensions(self):
 		return self.extensions
 
-	def __addList(self, extensions):
+	def __addFile(self, file):
+		"""Compare agains the list of regexp and add the file if it matches """
+		if len(self.extensions) == 0:
+			self.files.add(file)
+			self.statistics.addFile(file)
+			return True
+		else:
+			for ext in self.extensions:
+				fileName, fileExtension = os.path.splitext(file)
+
+				if fileExtension == ext:
+					self.files.add(file)
+					self.statistics.addFile(file)
+					print "added %s, matching EXT: %s" % (file, ext)
+					return True
+
+		return False
+
+	def __addListExt(self, extensions):
 		for ext in extensions:
 			found = False
 			for index in self.extensions:
@@ -43,10 +61,9 @@ class FileClass():
 				continue
 			else:
 				self.extensions.append(ext)
-				print "added %s" % ext
 		return True
 
-	def __addSingle(self, ext):
+	def __addSingleExt(self, ext):
 		for index in self.extensions:
 			if ext == index:
 				return True
