@@ -16,9 +16,12 @@ class FileClass():
 		if isinstance(pathToFile, list):
 			raise TypeError
 		elif isinstance(pathToFile, basestring):
-			return self.__addFile(pathToFile)		
-
-		return False
+			if not os.path.isfile(pathToFile):
+				return False
+			else:
+				return self.__addFile(pathToFile)
+		else:
+			return False
 
 	def addExtension(self, extensions):
 		if isinstance(extensions, list):
@@ -56,7 +59,7 @@ class FileClass():
 				if ext == index:
 					found = True
 					break;
-			
+
 			if found:
 				continue
 			else:
@@ -67,7 +70,7 @@ class FileClass():
 		for index in self.extensions:
 			if ext == index:
 				return True
-		
+
 		self.extensions.append(ext)
 		return True
 
@@ -85,6 +88,6 @@ class FileClass():
 		"""Print a file object and its properties"""
 
 		returnStr = "FileClass: \"%s\"\n" % (self.name)
-		
+
 		returnStr += " %s" % self.statistics
 		return returnStr
