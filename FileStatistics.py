@@ -68,7 +68,7 @@ class FileStatistics():
 			Print a file object and its properties
 		"""
 
-		returnStr = "FileClass: {:10s}" .format(self.name)
+		returnStr = "Statistics: {:10s}" .format(self.name)
 		
 		if self.statistics['numFiles'] > 0:
 			returnStr += '\n numFiles: {:10d}, minSize: {:10}, maxSize: {:10}, avgSize: {:10}, totalSize: {:10}' \
