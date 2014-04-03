@@ -1,12 +1,12 @@
 import unittest
 import random
 
-from FileClass import FileClass
+from FileClassContainer import FileClassContainer
 
 class TestSequence(unittest.TestCase):
 
 	def setUp(self):
-		self.analysis = FileClass('unittest')
+		self.analysis = FileClassContainer('unittest')
 		self.analysis.clear()
 
 	def tearDown(self):

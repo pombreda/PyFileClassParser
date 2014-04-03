@@ -2,7 +2,7 @@ from FileSize import FileSize
 from FileStatistics import FileStatistics
 import os.path
 
-class FileClass():
+class FileClassContainer():
 
 	def __init__(self, className):
 		"""this is a constructor for a File Object"""

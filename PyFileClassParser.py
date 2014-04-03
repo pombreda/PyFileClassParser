@@ -50,8 +50,7 @@ class CodeAnalysis():
 			thisSession = Session(folderObject.name, folderObject.path, self.classes)
 
 			# iterate over all files
-			self.__addFilesToSession(folderObject.files, thisSession)
-
+			thisSession.addFiles(folderObject)
 			
 			# append the completed session to the list
 			self.sessions.append(thisSession)

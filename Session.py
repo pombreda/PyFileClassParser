@@ -1,6 +1,8 @@
 import os.path
+import copy
 
 from FileClass import FileClass
+from FileWalker import FileWalker
 from FileStatistics import FileStatistics
 
 class Session():
@@ -9,41 +11,23 @@ class Session():
 	"""
 	def __init__(self, name="unknown", folder="./", classes=[]):
 		self.name = name
-		self.folder = folder
-		self.stat = [] # list of statistics for each class
+		self.folder = folder # the folder to analyse
+		self.classes = [] # list of FileClass objects
 		for item in classes:
-			if not self.__exists(item):
-				self.stat.append(FileStatistics(item))
-
-	def addFileToClass(self, pathToFile, className):
-		try:
-			isinstance(className, basestring)
-		except:
-			raise
-			
-		stat = self.getStatisticsForClass(className)
-		if isinstance(stat, FileStatistics):
-			stat.addFile(pathToFile)
-			print "file added"
-			return True
-
-		return False
-
-
-	def getStatisticsForClass(self, className):
-		for item in self.stat:
-			if className == item.name:
-				return item
+			if not isinstance(item, FileClass):
+				raise TypeError("Expected a FileClass object")
 			else:
-				continue
-		return False
+				print "Added FileClass: %s" % (item.name)
+				self.classes.append(copy.copy(item))
+			continue
+		print "done constructor"
 
-	def getFileClasses(self):
-		classes = []
-		for item in self.stat:
-			classes.append(item.name)
 
-		return classes
+	def addFiles(self, folderObject):
+		if isinstance(pathToFile, FileWalker):
+			return True
+		else:
+			return False
 
 
 	def clearSessions(self):
@@ -57,15 +41,3 @@ class Session():
 		for stat in self.stat:
 			returnStr += " %s\n" % (stat)
 		return returnStr
-
-
-	def __exists(self, className):
-		if len(self.stat) == 0:
-			return False
-		else:
-			for item in self.stat:
-				if item.name == className:
-					return True
-				else:
-					continue
-		return False

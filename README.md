@@ -40,6 +40,9 @@ The main idea was to create a configurable file parser that could scan source fo
 
 ## Session
  * Stores the results for a folder that in turn could contain several file classes
+ * provides functions like:
+   * adding FileWalker objects for a folder
+   * initiated with its own FileClass objects
 
 ## FileStatistics
  * Object stores the following informatione
