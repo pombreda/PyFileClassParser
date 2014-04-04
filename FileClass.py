@@ -4,9 +4,9 @@ from FileStatistics import FileStatistics
 
 class FileClass():
 	"""docstring for FileClass"""
-	def __init__(self, name="Unknown", extensions=[]):
+	def __init__(self, name, extensions=[]):
 		self.name = name
-		self.extensions = set([])
+		self.extensions = set(extensions)
 
 	def addExtension(self, extensions):
 		if isinstance(extensions, list):
@@ -35,7 +35,7 @@ class FileClass():
 
 class FileClassResults(FileClass):
 	"""docstring for FileClassResults"""
-	def __init__(self, name="Unknown", extensions=[]):
-		FileClass.__init__(self, name ,extensions)
+	def __init__(self, name, extensions):
+		FileClass.__init__(self, name , extensions)
 		self.files = set([]) # initiate set with empty list
 		self.statistics = FileStatistics(name)

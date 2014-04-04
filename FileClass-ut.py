@@ -25,7 +25,7 @@ class TestSequencer(unittest.TestCase):
 		pass
 
 	def test_instantiateSubClass(self):
-		self.results = FileClassResults('Documents', ['.pdf', 'docx'])
+		self.results = FileClassResults('Documents', ['.pdf', '.docx'])
 
 		print self.results
 
