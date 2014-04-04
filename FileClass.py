@@ -23,7 +23,7 @@ class FileClass():
 
 
 	def __str__(self):
-		returnStr = "FileClass: %s\n" % (self.name)
+		returnStr = "FileClass: %s (%s)\n" % (self.name, self.__class__.__name__)
 		returnStr += " Contained Extensions: "
 		if len(self.extensions) == 0:
 			returnStr += " none"

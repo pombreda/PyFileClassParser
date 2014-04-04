@@ -14,7 +14,7 @@ class TestSequence(unittest.TestCase):
 	def tearDown(self):
 		pass
 
-	def test_constructor(self):
+	def test_IgnoreDoubledExtensions(self):
 		self.assertTrue(self.fileClass.addExtension(['.cc', '.C', '.cc', '.exe', '.EXE']))
 		self.assertEqual(4, len(self.fileClass.getExtensions()))
 		print self.fileClass
@@ -25,7 +25,7 @@ class TestSequencer(unittest.TestCase):
 		pass
 
 	def test_instantiateSubClass(self):
-		self.results = FileClassResults('SubClass', [])
+		self.results = FileClassResults('Documents', ['.pdf', 'docx'])
 
 		print self.results
 
