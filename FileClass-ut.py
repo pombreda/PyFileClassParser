@@ -35,5 +35,18 @@ class TestFileClassResults(unittest.TestCase):
 
 		self.assertFalse(self.results.insertFile('test-run-all.sh'))
 
+	def test_clearFileClassResults(self):
+
+		self.results = FileClassResults('Documents', ['.py'])
+
+		self.assertTrue(self.results.insertFile('FileClass.py'))
+
+		self.assertEqual(1, len(self.results.getFiles()))
+
+		self.results.clear()
+
+		self.assertEqual(0, len(self.results.getFiles()))		
+
+
 if __name__ == "__main__":
     unittest.main()

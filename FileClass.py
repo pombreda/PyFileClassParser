@@ -22,7 +22,6 @@ class FileClass():
 	def getExtensions(self):
 		return list(self.extensions)
 
-
 	def __str__(self):
 		returnStr = "FileClass: %s (%s)\n" % (self.name, self.__class__.__name__)
 		returnStr += " Contained Extensions: "
@@ -52,6 +51,14 @@ class FileClassResults(FileClass):
 				return self.__addFile(pathToFile)
 		else:
 			return False
+
+	def clear(self):
+		self.statistics.clear()
+		self.files.clear()
+
+	def getFiles(self):
+		return list(self.files)
+
 
 	def __addFile(self, file):
 		"""Compare agains the list of regexp and add the file if it matches """
