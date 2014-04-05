@@ -19,15 +19,21 @@ class TestSequence(unittest.TestCase):
 		self.assertEqual(4, len(self.fileClass.getExtensions()))
 		print self.fileClass
 
-class TestSequencer(unittest.TestCase):
+class TestFileClassResults(unittest.TestCase):
 
 	def setUp(self):
 		pass
 
 	def test_instantiateSubClass(self):
 		self.results = FileClassResults('Documents', ['.pdf', '.docx'])
-
 		print self.results
+
+	def test_insertFile(self):
+		self.results = FileClassResults('Documents', ['.py'])
+
+		self.assertTrue(self.results.insertFile('FileClass.py'))
+
+		self.assertFalse(self.results.insertFile('test-run-all.sh'))
 
 if __name__ == "__main__":
     unittest.main()
