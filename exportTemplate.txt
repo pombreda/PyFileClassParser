@@ -1,0 +1,14 @@
+# template for export format
+
+Name: SessionName
+Folder: pathToFolder
+Statistic:
+  sumSize: 1238 kB
+  maxSize: 68 kB
+
+Name: SessionName 2
+Folder: pathToFolder
+Statistic:
+  sumSize: 1238 kB
+  maxSize:   68 kB
+  minSize:    2 kB
