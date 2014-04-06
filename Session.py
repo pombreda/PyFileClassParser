@@ -14,6 +14,7 @@ class Session():
 		self.name = name
 		self.folder = folder # the folder to analyse
 		self.classes = [] # list of FileClass objects
+		self.other = FileClassResults(FileClass('other'))
 		for item in classes:
 			if not isinstance(item, FileClass):
 				raise TypeError("Expected a FileClass object")
@@ -23,7 +24,8 @@ class Session():
 
 
 	def addFiles(self, folderObject):
-		if isinstance(pathToFile, FileWalker):
+		if isinstance(folderObject, FileWalker):
+			self.__addFiles(folderObject.getFiles())
 			return True
 		else:
 			return False
@@ -33,6 +35,20 @@ class Session():
 		for fileClass in self.classes:
 			fileClass.clear()
 
+	def __addFiles(self, listOfFiles):
+		for item in listOfFiles:
+			added = False
+			for fileClass in self.classes:
+				# iterate over all files and add them to their
+				# matching class
+				if fileClass.insertFile(item) == True:
+					# we've found a matching file class
+					added = True
+					break
+
+			if not added:
+				self.other.insertFile(item)
+		return True
 
 	def __str__(self):
 		returnStr = ""
