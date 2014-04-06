@@ -2,6 +2,7 @@ import os.path
 import copy
 
 from FileClass import FileClass
+from FileClass import FileClassResults
 from FileWalker import FileWalker
 from FileStatistics import FileStatistics
 
@@ -17,10 +18,8 @@ class Session():
 			if not isinstance(item, FileClass):
 				raise TypeError("Expected a FileClass object")
 			else:
-				print "Added FileClass: %s" % (item.name)
-				self.classes.append(copy.copy(item))
+				self.classes.append(FileClassResults(item))
 			continue
-		print "done constructor"
 
 
 	def addFiles(self, folderObject):
@@ -31,13 +30,13 @@ class Session():
 
 
 	def clearSessions(self):
-		for stat in self.classes:
-			stat.clear()
+		for fileClass in self.classes:
+			fileClass.clear()
 
 
 	def __str__(self):
 		returnStr = ""
 		returnStr += "Session: %s\n" % (self.name)
-		for stat in self.stat:
-			returnStr += " %s\n" % (stat)
+		for fileClass in self.classes:
+			returnStr += " %s\n" % (fileClass)
 		return returnStr
