@@ -45,7 +45,7 @@ class FileStatistics():
 			self.statistics['minSize'].set(size)
 
 		# compute average
-		self.statistics['avgSize'].set(self.statistics['sumSize'].get() / self.statistics['numFiles']) 
+		self.statistics['avgSize'].set(self.statistics['sumSize'].get() / self.statistics['numFiles'])
 		return True
 
 	def getNumFiles(self):
@@ -69,7 +69,7 @@ class FileStatistics():
 		"""
 
 		returnStr = "Statistics: {:10s}" .format(self.name)
-		
+
 		if self.statistics['numFiles'] > 0:
 			returnStr += '\n numFiles: {:10d}, minSize: {:10}, maxSize: {:10}, avgSize: {:10}, totalSize: {:10}' \
 				.format( \
