@@ -12,7 +12,7 @@ class TestSequence(unittest.TestCase):
 		del self.folder
 
 	def test_getFiles(self):
-		self.assertEqual(205, len(self.folder.getFiles()))
+		self.assertEqual(206, len(self.folder.getFiles()))
 
 	def test_checkPath(self):
 		self.assertEqual(self.folder.path, '/Users/bastian/Jobb/Transmode/R21-EDU/Software/AIMVALLEY-Titan-R1_03_00-LD3.0-20121119')
