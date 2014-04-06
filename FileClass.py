@@ -34,11 +34,15 @@ class FileClass():
 
 
 class FileClassResults(FileClass):
-	"""docstring for FileClassResults"""
-	def __init__(self, name, extensions):
-		FileClass.__init__(self, name , extensions)
+	""" Subclass of FileClass, holds the statistics """
+	def __init__(self, fileClass):
+		try:
+			isinstance(fileClass, FileClass)
+		except:
+			raise TypeError
+		FileClass.__init__(self, fileClass.name , fileClass.extensions)
 		self.files = set([]) # initiate set with empty list
-		self.statistics = FileStatistics(name)
+		self.statistics = FileStatistics(fileClass.name)
 
 	def insertFile(self, pathToFile):
 		""" Check file name against regexp and add if matched, return true if added """
@@ -58,7 +62,6 @@ class FileClassResults(FileClass):
 
 	def getFiles(self):
 		return list(self.files)
-
 
 	def __addFile(self, file):
 		"""Compare agains the list of regexp and add the file if it matches """

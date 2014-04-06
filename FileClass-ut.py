@@ -25,19 +25,21 @@ class TestFileClassResults(unittest.TestCase):
 		pass
 
 	def test_instantiateSubClass(self):
-		self.results = FileClassResults('Documents', ['.pdf', '.docx'])
+		self.fileClass = FileClass('Documents', ['.pdf', '.docx'])
+		self.results = FileClassResults(self.fileClass)
 		print self.results
 
 	def test_insertFile(self):
-		self.results = FileClassResults('Documents', ['.py'])
+		self.fileClass = FileClass('Documents', ['.py'])
+		self.results = FileClassResults(self.fileClass)
 
 		self.assertTrue(self.results.insertFile('FileClass.py'))
 
 		self.assertFalse(self.results.insertFile('test-run-all.sh'))
 
 	def test_clearFileClassResults(self):
-
-		self.results = FileClassResults('Documents', ['.py'])
+		self.fileClass = FileClass('Documents', ['.py'])
+		self.results = FileClassResults(self.fileClass)
 
 		self.assertTrue(self.results.insertFile('FileClass.py'))
 
@@ -45,7 +47,9 @@ class TestFileClassResults(unittest.TestCase):
 
 		self.results.clear()
 
-		self.assertEqual(0, len(self.results.getFiles()))		
+		self.assertEqual(0, len(self.results.getFiles()))
+
+		print self.results	
 
 
 if __name__ == "__main__":
