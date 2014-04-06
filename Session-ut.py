@@ -23,7 +23,7 @@ class TestSequence(unittest.TestCase):
 		print self.session
 
 	def test_addingFiles(self):
-		self.folder = FileWalker('localDir', './')
+		self.folder = FileWalker('AimValley TITAN', '/Users/bastian/Jobb/Transmode/R21-EDU/Software/AIMVALLEY-Titan-R1_03_00-LD3.0-20121119/av-Titan-r1_03_00-ld3.0-121119')
 		self.assertTrue(self.session.addFiles(self.folder))
 
 		print self.session

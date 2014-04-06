@@ -54,6 +54,6 @@ class Session():
 		returnStr = ""
 		returnStr += "Session: %s\n" % (self.name)
 		for fileClass in self.classes:
-			returnStr += " %s\n" % (fileClass)
-		returnStr += " %s\n" % (self.other)
+			returnStr += "%s\n\n" % (fileClass)
+		returnStr += "%s\n" % (self.other)
 		return returnStr

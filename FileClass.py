@@ -23,12 +23,14 @@ class FileClass():
 		return list(self.extensions)
 
 	def __str__(self):
-		returnStr = "FileClass: %s (%s)\n" % (self.name, self.__class__.__name__)
-		returnStr += " Contained Extensions: "
+		returnStr = "FileClass: %s\n" % (self.name)
+		returnStr += "Contained Extensions: "
 		if len(self.extensions) == 0:
-			returnStr += " none"
-		for item in list(self.extensions):
-			returnStr += "\'%s\' " % (item)
+			returnStr += " none\n"
+		else:
+			for item in list(self.extensions):
+				returnStr += "\'%s\' " % (item)
+			returnStr += "\n"
 		return returnStr
 
 
