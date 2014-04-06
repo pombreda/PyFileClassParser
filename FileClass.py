@@ -53,6 +53,7 @@ class FileClassResults(FileClass):
 				return False
 			else:
 				return self.__addFile(pathToFile)
+				print "file %s added" % (pathToFile)
 		else:
 			return False
 
@@ -79,3 +80,8 @@ class FileClassResults(FileClass):
 					return True
 
 		return False
+
+	def __str__(self):
+		myString = FileClass.__str__(self)
+		myString += FileStatistics.__str__(self.statistics)
+		return myString
