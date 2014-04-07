@@ -66,7 +66,7 @@ class CodeAnalysis():
 		self.classes.append(FileClass(type, list(extension)))
 
 	def __str__(self):
-		str = ""
+		str = ""	
 		str += "File Analysis\n"
 		for item in self.sessions:
 			str += " %s\n\n" % item

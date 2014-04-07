@@ -1,12 +1,12 @@
 import unittest
 import random
 
-import Folder
+from FileWalker import FileWalker
 
 class TestSequence(unittest.TestCase):
 
 	def setUp(self):
-		self.folder = Folder.FileWalker('Broadcom SDK', '/Users/bastian/Jobb/Transmode/R21-EDU/Software/AIMVALLEY-Titan-R1_03_00-LD3.0-20121119')
+		self.folder = FileWalker('Broadcom SDK', '/Users/bastian/Jobb/Transmode/R21-EDU/Software/AIMVALLEY-Titan-R1_03_00-LD3.0-20121119')
 
 	def tearDown(self):
 		del self.folder
