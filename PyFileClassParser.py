@@ -28,7 +28,8 @@ AlreadyExists = 1
 class CodeAnalysis():
 	"""Holds the results for a file analysis"""
 
-	def __init__(self):
+	def __init__(self, name=''):
+		self.name = name
 		self.folder = []
 		self.db = {} # create a dictionary, file extensions to class names
 		self.sessions = [] # list of sessions, stores files and statistics for a number of classes per session
@@ -60,12 +61,14 @@ class CodeAnalysis():
 
 
 	def extAdd(self, type, extension):
+		if (type == 'other') or (type == 'OTHER'):
+			raise TypeError('File class with name \"other\" isn\'t supported')
 		self.classes.append(FileClass(type, list(extension)))
 
 	def __str__(self):
 		str = ""
 		str += "File Analysis\n"
-		for item in self.classes:
+		for item in self.sessions:
 			str += " %s\n\n" % item
 		return str
 
