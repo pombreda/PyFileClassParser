@@ -31,7 +31,7 @@ class TestSequence(unittest.TestCase):
 		self.analysis.extAdd('fpga-code', ['.vhdl', '.v'])
 		self.analysis.extAdd('images', ['.iso', '.bin'])
 
-		self.folder = FileWalker(name='Broadcom SDK', pathToFolder='/Users/bastian/Jobb/Transmode/R21-EDU/Software/AIMVALLEY-Titan-R1_03_00-LD3.0-20121119/av-Titan-r1_03_00-ld3.0-121119')
+		self.folder = FileWalker(name='Broadcom SDK', pathToFolder='./')
 
 		self.analysis.folderAdd(self.folder)
 
