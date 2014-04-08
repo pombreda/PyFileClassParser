@@ -3,7 +3,7 @@
 from FileStatistics import FileStatistics
 import os.path
 
-class FileClass():
+class FileClass(object):
 	"""docstring for FileClass"""
 	def __init__(self, name, extensions=[]):
 		self.name = name
