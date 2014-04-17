@@ -35,6 +35,8 @@ class TestSequence(unittest.TestCase):
 
 		self.analysis.folderAdd(self.folder)
 
+		self.analysis.export2File(mode='csv', name='simpleExport.csv')
+
 		print self.analysis
 
 

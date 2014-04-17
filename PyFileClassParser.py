@@ -65,6 +65,9 @@ class CodeAnalysis():
 			raise TypeError('File class with name \"other\" isn\'t supported')
 		self.classes.append(FileClass(type, list(extension)))
 
+	def export2File(self, name, mode='txt', dir='./'):
+		pass
+
 	def __str__(self):
 		str = ""	
 		str += "File Analysis\n"
