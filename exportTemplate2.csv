@@ -1,0 +1,10 @@
+----------
+TextFormat
+----------
+
+
+----------
+CSV Format
+----------
+class,minSize,maxSize,avgSize,numFiles,sumSize
+"documentation",12,2388,96,318,1900
