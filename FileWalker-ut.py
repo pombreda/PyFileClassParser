@@ -12,7 +12,7 @@ class TestSequence(unittest.TestCase):
 		del self.folder
 
 	def test_getFiles(self):
-		self.assertEqual(218, len(self.folder.getFiles()))
+		self.assertEqual(19, len(self.folder.getFiles()))
 
 	def test_checkPath(self):
 		self.assertEqual(self.folder.path, './')
