@@ -5,6 +5,10 @@ The main idea was to create a configurable file parser that could scan source fo
  * How much source code does this project contain?
  * How much scripting code does the project contain?
 
+## Contributers
+* Sebastian
+* Fredrik
+
 ## How to use it
  * In order to scan several folders for files simply do the following: 
    * Configure a number of file classes
