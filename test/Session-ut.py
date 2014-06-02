@@ -1,4 +1,7 @@
 import unittest
+import sys
+
+sys.path.append('../')
 
 from Session import Session
 from FileClass import FileClass

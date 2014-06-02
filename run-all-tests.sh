@@ -11,8 +11,14 @@ function clean-up()
 	rm -f *.pyc && echo "performed clean-up"	
 }
 
+TEST_DIR="test"
+
+test -d $TEST_DIR || perror "didn't found the test folder"
+
+cd ${TEST_DIR}
 
 clean-up
+
 for item in `ls *-ut.py`; do
     echo "run: $item"
     python $item &> /dev/null || perror "Failed running test: $item"; 

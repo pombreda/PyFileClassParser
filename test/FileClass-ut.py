@@ -1,5 +1,8 @@
 # unit test for FileClass object
 import unittest
+import sys
+
+sys.path.append('../')
 
 from FileClass import FileClass
 from FileClass import FileClassResults
@@ -33,15 +36,15 @@ class TestFileClassResults(unittest.TestCase):
 		self.fileClass = FileClass('Documents', ['.py'])
 		self.results = FileClassResults(self.fileClass)
 
-		self.assertTrue(self.results.insertFile('FileClass.py'))
+		self.assertTrue(self.results.insertFile('../FileClass.py'))
 
-		self.assertFalse(self.results.insertFile('test-run-all.sh'))
+		self.assertFalse(self.results.insertFile('../test-run-all.sh'))
 
 	def test_clearFileClassResults(self):
 		self.fileClass = FileClass('Documents', ['.py'])
 		self.results = FileClassResults(self.fileClass)
 
-		self.assertTrue(self.results.insertFile('FileClass.py'))
+		self.assertTrue(self.results.insertFile('../FileClass.py'))
 
 		self.assertEqual(1, len(self.results.getFiles()))
 

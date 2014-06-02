@@ -65,6 +65,22 @@ class CodeAnalysis():
 			raise TypeError('File class with name \"other\" isn\'t supported')
 		self.classes.append(FileClass(type, list(extension)))
 
+	def export2File(self, name, mode='txt', dirname='./', overwrite='no'):
+		pathToFile = os.path.join(dirname, name)
+		if not os.path.exists(dirname):
+			os.mkdir(dirname)
+			print "folder created"
+		else:
+			if os.path.exists(pathToFile):
+				if not overwrite == 'yes':
+					return False
+			else:
+				print "export file doesn't exist"
+			
+
+		print "export => mode: %s, path: %s" % (mode, pathToFile)
+		return True
+
 	def __str__(self):
 		str = ""	
 		str += "File Analysis\n"
