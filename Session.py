@@ -6,7 +6,7 @@ from FileClass import FileClassResults
 from FileWalker import FileWalker
 from FileStatistics import FileStatistics
 
-class Session():
+class Session(object):
 	"""
 		contains a number of statistic objects one for each class
 	"""
