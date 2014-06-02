@@ -1,0 +1,11 @@
+total 48
+drwxr-xr-x  10 bastian  staff   340 31 Maj 11:33 .
+drwxr-xr-x  18 bastian  staff   612 31 Maj 11:29 ..
+drwxr-xr-x   3 bastian  staff   102 31 Maj 11:21 .svn
+-rw-r--r--   1 bastian  staff  1409 31 Maj 11:28 FileClass-ut.py
+-rwxr-xr-x   1 bastian  staff  1919 31 Maj 11:28 FileSize-ut.py
+-rwxr-xr-x   1 bastian  staff   584 31 Maj 11:28 FileStatistics-ut.py
+-rwxr-xr-x   1 bastian  staff   500 31 Maj 11:30 FileWalker-ut.py
+-rwxr-xr-x   1 bastian  staff  1754 31 Maj 11:21 PyFileClassParser-ut.py
+-rwxr-xr-x   1 bastian  staff   877 31 Maj 11:21 Session-ut.py
+drwxr-xr-x   3 bastian  staff   102 31 Maj 11:34 test-dir

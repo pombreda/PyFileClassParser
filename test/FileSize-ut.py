@@ -5,6 +5,9 @@ unit test for class: FileSize
 
 import unittest
 import random
+import sys
+
+sys.path.append('../')
 
 import FileSize
 
