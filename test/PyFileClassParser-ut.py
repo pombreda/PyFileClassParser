@@ -1,5 +1,8 @@
 import unittest
 import random
+import sys
+
+sys.path.append('../')
 
 from PyFileClassParser import CodeAnalysis
 from FileWalker import FileWalker
